@@ -11,8 +11,8 @@ public class SQLiteSimpleDatabase extends SQLiteOpenHelper {
     private String createTableQuery;
 
 
-    public SQLiteSimpleDatabase(@Nullable Context context, String createTableQuery, int version) {
-        super(context, TableMulta.nameDb, null, version);
+    public SQLiteSimpleDatabase(@Nullable Context context, String name, String createTableQuery, int version) {
+        super(context, name, null, version);
         this.createTableQuery = createTableQuery;
     }
 

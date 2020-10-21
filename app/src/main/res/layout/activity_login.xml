@@ -1,75 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".LoginActivity"
     android:background="@color/colorWhite"
-    >
-    <RelativeLayout
-        android:id="@+id/logo"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:src="@drawable/logo2" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtEmail"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo2" />
+        </FrameLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="50dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:background="@drawable/custom_input"
-            android:drawablePadding="10dp"
-            android:drawableStart="@drawable/custom_email_icon"
-            android:hint="Correo" />
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtPassword"
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="50dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_email_icon"
+                android:drawablePadding="10dp"
+                android:hint="@string/correo"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:height="50dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_lock_icon"
+                android:drawablePadding="10dp"
+                android:hint="@string/contraseña"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/custom_lock_icon"
-            android:layout_below="@+id/txtEmail"
-            android:hint="Contraseña"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:layout_marginTop="10dp"
-            android:height="50dp"
-            android:background="@drawable/custom_input"
-            android:drawablePadding="10dp" />
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/btnSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded"
+                android:onClick="onClick"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="@string/iniciar_sesion"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_rounded"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="onClick"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

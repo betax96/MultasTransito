@@ -76,15 +76,46 @@
 
         <Button
             android:id="@+id/btnCancelar"
-            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/material_icons"
+            android:includeFontPadding="false"
+            android:padding="0dp"
+            android:text="@string/glyph_cancel"
+            android:textSize="26sp"
+            android:theme="@style/ButtonTheme" />
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/cancelar" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEliminar"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:fontFamily="@font/material_icons"
+                android:includeFontPadding="false"
+                android:padding="0dp"
+                android:text="@string/glyph_remove"
+                android:textSize="26sp"
+                android:theme="@style/ButtonTheme"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnGuardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/guardar" />
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/material_icons"
+            android:includeFontPadding="false"
+            android:padding="0dp"
+            android:text="@string/glyph_save"
+            android:textSize="26sp"
+            android:theme="@style/ButtonTheme" />
     </LinearLayout>
 </LinearLayout>

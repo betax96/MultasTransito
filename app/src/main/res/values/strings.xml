@@ -8,4 +8,12 @@
     <string name="cancelar">Cancelar</string>
     <string name="guardar">Guardar</string>
     <string name="eliminar">Eliminar</string>
+    <string name="correo">Correo</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar sesion</string>
+    <string name="cerrar_sesion">Cerrar sesion</string>
+
+    <string name="glyph_save" translatable="false">&#xe161;</string>
+    <string name="glyph_remove" translatable="false">&#xe872;</string>
+    <string name="glyph_cancel" translatable="false">&#xe5cd;</string>
 </resources>

@@ -48,7 +48,19 @@ public class MultaDialog extends AppCompatDialog {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String placa = tilPlaca.getEditText().getText().toString();
+                String modelo = tilModelo.getEditText().getText().toString();
+                String dirreccionInf = tilDireccionInf.getEditText().getText().toString();;
+                String tipoComparendo = tilTipoComparendo.getEditText().getText().toString();;
+                String cedulaInf = tilCedulaInf.getEditText().getText().toString();
 
+                if(!TextUtils.isEmpty(placa)&&!TextUtils.isEmpty(modelo)&&
+                !TextUtils.isEmpty(dirreccionInf)&&!TextUtils.isEmpty(tipoComparendo)&&
+                !TextUtils.isEmpty(cedulaInf)){
+                    if(actionListener!=null){
+                        actionListener.onGuardar(new Multa(placa,modelo,dirreccionInf,tipoComparendo,cedulaInf));
+                    }
+                }
             }
         });
     }
@@ -83,6 +95,7 @@ public class MultaDialog extends AppCompatDialog {
 
     interface ActionListener {
         void onGuardar(Multa multa);
+        void onEliminar(Multa multa);
         void onCancelar();
     }
 

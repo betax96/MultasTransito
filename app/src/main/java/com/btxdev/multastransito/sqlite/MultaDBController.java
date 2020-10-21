@@ -11,9 +11,10 @@ import com.btxdev.multastransito.Multa;
 public class MultaDBController {
 
     private SQLiteSimpleDatabase db;
+    public static final String db_name = "multa_db";
 
-    public MultaDBController(Context c){
-        this.db = new SQLiteSimpleDatabase(c, TableMulta.create_query, 1);
+    public MultaDBController(Context context){
+        db = new SQLiteSimpleDatabase(context, db_name, TableMulta.create_query, 1);
     }
 
     public Multa add(Multa multa){
