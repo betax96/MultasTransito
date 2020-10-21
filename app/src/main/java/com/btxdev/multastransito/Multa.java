@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Multa implements Parcelable {
+    private long id;
     private String placa;
     private String modelo;
     private String direccionInfraccion;
@@ -19,11 +20,27 @@ public class Multa implements Parcelable {
     }
 
     protected Multa(Parcel in) {
+        id = in.readLong();
         placa = in.readString();
         modelo = in.readString();
         direccionInfraccion = in.readString();
         tipoComparendo = in.readString();
         cedulaInfractor = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(placa);
+        dest.writeString(modelo);
+        dest.writeString(direccionInfraccion);
+        dest.writeString(tipoComparendo);
+        dest.writeString(cedulaInfractor);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Multa> CREATOR = new Creator<Multa>() {
@@ -37,6 +54,14 @@ public class Multa implements Parcelable {
             return new Multa[size];
         }
     };
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getPlaca() {
         return placa;
@@ -76,19 +101,5 @@ public class Multa implements Parcelable {
 
     public void setCedulaInfractor(String cedulaInfractor) {
         this.cedulaInfractor = cedulaInfractor;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(placa);
-        dest.writeString(modelo);
-        dest.writeString(direccionInfraccion);
-        dest.writeString(tipoComparendo);
-        dest.writeString(cedulaInfractor);
     }
 }
