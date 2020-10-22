@@ -26,8 +26,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         Button btnSignIn = (Button) findViewById(R.id.btnSignIn);
         btnSignIn.setOnClickListener(this);
-
-        new MultaDialog(this).show();
     }
 
     @Override

@@ -3,8 +3,8 @@
     <string name="placa">Placa</string>
     <string name="modelo">Modelo</string>
     <string name="direccion_infraccion">Direccion de la infraccion</string>
-    <string name="tipo_comparendo">Tipo de comparendo</string>
-    <string name="cedula_infractor">Cedula del infractor</string>
+    <string name="tipo_comparendo">Tipo</string>
+    <string name="cedula_infractor">Cedula</string>
     <string name="cancelar">Cancelar</string>
     <string name="guardar">Guardar</string>
     <string name="eliminar">Eliminar</string>
@@ -13,7 +13,13 @@
     <string name="iniciar_sesion">Iniciar sesion</string>
     <string name="cerrar_sesion">Cerrar sesion</string>
 
+    <string name="tipo_comp_todos">Todos</string>
+    <string name="tipo_comp_luz_roja">Luz roja</string>
+    <string name="tipo_comp_mal_parqueo">Mal parqueo</string>
+    <string name="tipo_comp_papeles_vencidos">Papeles vencidos</string>
+
     <string name="glyph_save" translatable="false">&#xe161;</string>
     <string name="glyph_remove" translatable="false">&#xe872;</string>
     <string name="glyph_cancel" translatable="false">&#xe5cd;</string>
+    <string name="glyph_log_out" transtatable="false">&#xe879;</string>
 </resources>

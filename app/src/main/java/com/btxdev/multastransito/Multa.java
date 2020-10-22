@@ -19,6 +19,15 @@ public class Multa implements Parcelable {
         this.cedulaInfractor = cedulaInfractor;
     }
 
+    public Multa(long id, String placa, String modelo, String direccionInfraccion, String tipoComparendo, String cedulaInfractor) {
+        this.id = id;
+        this.placa = placa;
+        this.modelo = modelo;
+        this.direccionInfraccion = direccionInfraccion;
+        this.tipoComparendo = tipoComparendo;
+        this.cedulaInfractor = cedulaInfractor;
+    }
+
     protected Multa(Parcel in) {
         id = in.readLong();
         placa = in.readString();
