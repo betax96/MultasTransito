@@ -38,26 +38,24 @@
                 android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:height="50dp"
                 android:background="@drawable/custom_input"
                 android:drawableStart="@drawable/custom_email_icon"
                 android:drawablePadding="10dp"
                 android:hint="@string/correo"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp" />
+                android:inputType="textEmailAddress"
+                android:padding="12dp" />
 
             <EditText
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:height="50dp"
                 android:background="@drawable/custom_input"
                 android:drawableStart="@drawable/custom_lock_icon"
                 android:drawablePadding="10dp"
                 android:hint="@string/contraseña"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp" />
+                android:inputType="textPassword"
+                android:padding="12dp" />
 
 
         </LinearLayout>

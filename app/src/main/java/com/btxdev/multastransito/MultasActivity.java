@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -208,12 +209,13 @@ public class MultasActivity extends AppCompatActivity {
     }
 
     public void logUp() {
-        SharedPreferences sharedPreferences = MultasActivity.this.getSharedPreferences("login_preference", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.shared_pref_login), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isLogged", false);
+        editor.putString(getString(R.string.pref_current_password), null);
         editor.apply();
         Intent intent = new Intent();
         intent.setClass(this, LoginActivity.class);
+        Toast.makeText(this, R.string.se_ha_cerrado_la_sesion, Toast.LENGTH_SHORT).show();
         startActivity(intent);
         this.finish();
     }

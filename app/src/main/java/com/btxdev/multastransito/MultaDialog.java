@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDialog;
 
@@ -78,6 +79,8 @@ public class MultaDialog extends AppCompatDialog {
                     if(actionListener!=null){
                         actionListener.onGuardar(index, new Multa(id, placa,modelo,dirreccionInf,tipoComparendo,cedulaInf));
                     }
+                }else{
+                    Toast.makeText(getContext(), R.string.err_campo_invalido,Toast.LENGTH_SHORT).show();
                 }
             }
         });

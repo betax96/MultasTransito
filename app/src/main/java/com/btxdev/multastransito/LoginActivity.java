@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,7 +24,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textEmail = (EditText) findViewById(R.id.txtEmail);
         textPassword = (EditText) findViewById(R.id.txtPassword);
 
-        currentUser();
+        checkCurrentUser();
 
         Button btnSignIn = (Button) findViewById(R.id.btnSignIn);
         btnSignIn.setOnClickListener(this);
@@ -30,17 +32,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        final String email = textEmail.getText().toString();
+        final String user = textEmail.getText().toString();
         final String password = textPassword.getText().toString();
-        // TODO: Consultar a la DB en caso de necesitarlo... xD
-        savePreferencesSignIn();
-        moveToOtherActivity(MultasActivity.class);
+
+
+        if(!TextUtils.isEmpty(user)&&!TextUtils.isEmpty(password)){
+            savePreferencesSignIn(user, password);
+            Toast.makeText(this,getString(R.string.se_ha_iniciado_sesion_como)+" \""+user+"\"", Toast.LENGTH_SHORT).show();
+            moveToOtherActivity(MultasActivity.class);
+        }else{
+            Toast.makeText(this, R.string.err_campo_invalido,Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-    public void currentUser () {
-        SharedPreferences sharedPreferences = getSharedPreferences("login_preference",Context.MODE_PRIVATE);
-        boolean isLogged = sharedPreferences.getBoolean("isLogged", false);
-        if (isLogged) moveToOtherActivity(MultasActivity.class);
+    public void checkCurrentUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.shared_pref_login),Context.MODE_PRIVATE);
+        String user = sharedPreferences.getString(getString(R.string.pref_current_user), null);
+        String password = sharedPreferences.getString(getString(R.string.pref_current_password), null);
+
+        if(user!=null){
+            textEmail.setText(user);
+        }
+
+        if (user!=null&&password!=null){
+            Toast.makeText(this,getString(R.string.se_ha_iniciado_sesion_como)+" \""+user+"\"", Toast.LENGTH_SHORT).show();
+            moveToOtherActivity(MultasActivity.class);
+        }
     }
 
     public void moveToOtherActivity (Class<?> cls) {
@@ -50,10 +68,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         this.finish();
     }
 
-    private void savePreferencesSignIn () {
-        SharedPreferences sharedPreferences = getSharedPreferences("login_preference",Context.MODE_PRIVATE);
+    private void savePreferencesSignIn (String email, String password) {
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.shared_pref_login),Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isLogged", true);
+        editor.putString(getString(R.string.pref_current_user),email);
+        editor.putString(getString(R.string.pref_current_password),password);
         editor.apply();
     }
 }
